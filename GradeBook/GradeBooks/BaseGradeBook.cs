@@ -13,12 +13,14 @@ namespace GradeBook.GradeBooks
     {
         public string Name { get; set; }
         public List<Student> Students { get; set; }
-
+        public bool IsWeighted { get; set; }
         public GradeBookType Type { get; set; }
-        public BaseGradeBook(string name)
+        public BaseGradeBook(string name, bool isWeight)
         {
             Name = name;
             Students = new List<Student>();
+            IsWeighted = isWeight;
+
         }
 
         public void AddStudent(Student student)
@@ -268,6 +270,6 @@ namespace GradeBook.GradeBooks
             return JsonConvert.DeserializeObject(json, gradebook);
         }
 
-        public bool IsWeighted { get; set; }
+       
     }
 }
